@@ -13,15 +13,17 @@ for (int i = 0; i < array.Length; i++)
     array[i] = new Random().Next(100,1000);
     if (array[i] % 2 == 0)
     {
-        arrEven[i] = array[i];
+        arrEven[countEven] = array[i];
         countEven++;
+        System.Console.WriteLine($"Четные числа: {arrEven[countEven - 1]} ");
     }
     else
     {
+        arrNotEven[counNotEven] = array[i];
         counNotEven++;
+        System.Console.WriteLine($"Не четные числа: {arrNotEven[counNotEven - 1]} ");
     }
-    System.Console.WriteLine($"Четные числа: {arrEven[i]}");
 }
 
-System.Console.WriteLine($"Количество четных: {countEven}");
+System.Console.WriteLine($"\nКоличество четных: {countEven}");
 System.Console.WriteLine($"Количество не четных: {counNotEven}");
