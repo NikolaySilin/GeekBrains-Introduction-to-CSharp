@@ -1,0 +1,81 @@
+﻿// В двумерном массиве показать позиции числа, заданного пользователем или указать, что такого элемента нет
+
+int x, y;
+
+int digit;
+
+int[,] arr;
+
+string result;
+
+void InputRowsAndColumns(out int x, out int y)
+{
+    System.Console.Write("Введите количество строк: ");
+    x = int.Parse(Console.ReadLine());
+
+    System.Console.Write("Введите количество столбцов: ");
+    y = int.Parse(Console.ReadLine());
+}
+
+void InputNumberPosition(out int digit)
+{
+    System.Console.Write("Введите число: ");
+    digit = int.Parse(Console.ReadLine());
+}
+
+void FillArray(int x, int y)
+{
+    arr = new int[x, y];
+
+    for (int i = 0; i < arr.GetLength(0); i++)
+    {
+        for (int j = 0; j < arr.GetLength(1); j++)
+        {
+            arr[i, j] = new Random().Next(-100, 100);
+        }
+    }
+}
+
+void Solve(int[,] array, int digit)
+{
+    var result = String.Empty;
+
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            if (array[i, j] == digit)
+            {
+                result = $"Координаты числа, строка: {i + 1} столбец: {j + 1}";
+            }
+        }
+    }
+    if(result != null)
+    {
+        System.Console.WriteLine($"{result}");
+    }
+    else
+    {
+        System.Console.WriteLine("Такого числа нет!");
+    }
+}
+
+void PrintArray(int[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            System.Console.Write($"{array[i, j],7} |");
+        }
+        System.Console.WriteLine();
+    }
+}
+
+InputRowsAndColumns(out x, out y);
+
+FillArray(x, y);
+PrintArray(arr);
+
+InputNumberPosition(out digit);
+Solve(arr, digit);

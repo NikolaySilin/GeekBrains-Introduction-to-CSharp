@@ -32,7 +32,7 @@ void Solve(int[,] array)
     {
         for (int j = 0; j < array.GetLength(1); j++)
         {   
-            if(array[i, j] % 2 == 0)
+            if(i % 2 == 0 && j % 2 == 0)
             {
                 array[i, j] = (int) Math.Pow(array[i, j], 2);
             }
