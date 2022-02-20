@@ -36,27 +36,30 @@ void FillArray(int x, int y)
     }
 }
 
-void Solve(int[,] array, int digit)
+void Solve(int[,] array, int inputDigit)
 {
-    var result = String.Empty;
+    var findDigit = 0;
+    int x = 0, y = 0;
 
     for (int i = 0; i < array.GetLength(0); i++)
     {
         for (int j = 0; j < array.GetLength(1); j++)
         {
-            if (array[i, j] == digit)
+            if (array[i, j] == inputDigit)
             {
-                result = $"Координаты числа, строка: {i + 1} столбец: {j + 1}";
+                findDigit = array[i, j];
+                x = i;
+                y = j;
             }
         }
     }
-    if(result != null)
+    if(findDigit == inputDigit)
     {
-        System.Console.WriteLine($"{result}");
+        System.Console.WriteLine($"Координаты числа, строка: {x + 1} столбец: {y + 1}");
     }
     else
     {
-        System.Console.WriteLine("Такого числа нет!");
+        System.Console.WriteLine($"Числа {inputDigit} в массиве нет!");
     }
 }
 
