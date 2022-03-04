@@ -10,4 +10,3 @@ bool IsTreug(double x, double y, double z)
 }
 
 System.Console.WriteLine($"{a} {b} {c} - " + IsTreug(a, b, c));
-gi
