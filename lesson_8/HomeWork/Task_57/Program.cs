@@ -28,14 +28,14 @@ void FillArray(int x, int y)
 
 void Solution(int[,] arr)
 {
-    var arrr = arr.Cast<int>().OrderByDescending(a => a).ToArray();
+    var sorting = arr.Cast<int>().OrderByDescending(a => a).ToArray();
  
             int c = 0;
             for (int i = 0; i < arr.GetLength(0); i++)
             {
                 for (int j = 0; j < arr.GetLength(1); j++)
                 {
-                    arr[i, j] = arrr[c];
+                    arr[i, j] = sorting[c];
                     System.Console.Write($"{arr[i, j],7} |");
                     c++;
                 }
