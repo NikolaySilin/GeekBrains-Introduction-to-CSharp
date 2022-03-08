@@ -31,13 +31,22 @@ void Solution(int[,] arr, ref int[,] tempArr)
 {
     tempArr = new int[arr.GetLength(0), arr.GetLength(1)];
 
-    for (int i = 0; i < arr.GetLength(0); i++)
+    if (arr.GetLength(0) == arr.GetLength(1))
     {
-        for (int j = 0; j < arr.GetLength(1); j++)
+        for (int i = 0; i < arr.GetLength(0); i++)
         {
-            tempArr[i, j] = arr[j, i];
+            for (int j = 0; j < arr.GetLength(1); j++)
+            {
+                tempArr[i, j] = arr[j, i];
+            }
         }
+        PrintArray(temporaryArray);
     }
+    else
+    {
+        System.Console.WriteLine("Операцию невозможно выполнить! Количество строк не равно количеству столбцов!");
+    }
+
 }
 
 void PrintArray(int[,] arr)
@@ -57,4 +66,3 @@ FillArray(out array, rows, columns);
 PrintArray(array);
 System.Console.WriteLine();
 Solution(array, ref temporaryArray);
-PrintArray(temporaryArray);
